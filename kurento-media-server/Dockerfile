@@ -18,7 +18,11 @@ RUN	echo "deb http://ubuntu.kurento.org trusty kms6" | tee /etc/apt/sources.list
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
+# for Kurento
 EXPOSE 8888
+
+# for turn server
+EXPOSE 49152-65535
 
 COPY ./entrypoint.sh /entrypoint.sh
 

@@ -23,7 +23,11 @@ RUN echo "TURNSERVER_ENABLED=1" >> /etc/default/coturn \
 	&& echo "realm=kurento.org" >> /etc/turnserver.conf \
 	&& echo "external-ip=52.193.72.117" >> /etc/turnserver.conf
 
+# for Kurento
 EXPOSE 8888
+
+# for turn server
+EXPOSE 49152-65535
 
 COPY ./entrypoint.sh /entrypoint.sh
 
