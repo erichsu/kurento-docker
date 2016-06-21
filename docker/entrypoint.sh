@@ -22,7 +22,7 @@ if [ ! -z "$IS_AWS_EC2" ]; then
 	echo "external-ip=${EXTERNAL_IP}/${LOCAL_IP}" >> /etc/turnserver.conf
 	echo "turnURL=kurento:kurento@${EXTERNAL_IP}:3478" > /etc/kurento/modules/kurento/WebRtcEndpoint.conf.ini
 else
-	echo "external-ip=${EXTERNAL_IP}/${LOCAL_IP}" >> /etc/turnserver.conf
+	echo "external-ip=${EXTERNAL_IP}" >> /etc/turnserver.conf
 fi
 
 if [ ! -z "$COTURN_MIN_PORT" ]; then
