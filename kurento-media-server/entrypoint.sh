@@ -20,6 +20,7 @@ if [ ! -z "$IS_AWS_EC2" ]; then
 	EXTERNAL_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 	LOCAL_IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 	echo "external-ip=${EXTERNAL_IP}/${LOCAL_IP}" >> /etc/turnserver.conf
+	echo "turnURL=kurento:kurento@${EXTERNAL_IP}:3478" >> /etc/kurento/modules/kurento/WebRtcEndpoint.conf.ini
 else
 	echo "external-ip=${EXTERNAL_IP}/${LOCAL_IP}" >> /etc/turnserver.conf
 fi
