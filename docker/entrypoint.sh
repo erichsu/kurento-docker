@@ -24,6 +24,14 @@ else
 	echo "external-ip=${EXTERNAL_IP}/${LOCAL_IP}" >> /etc/turnserver.conf
 fi
 
+if [ ! -z "$COTURN_MIN_PORT" ]; then
+	echo "min-port=${COTURN_MIN_PORT}" >> /etc/turnserver.conf
+fi
+
+if [ ! -z "$COTURN_MAX_PORT" ]; then
+	echo "max-port=${COTURN_MAX_PORT}" >> /etc/turnserver.conf
+fi
+
 service coturn start
 # Remove ipv6 local loop until ipv6 is supported
 cat /etc/hosts | sed '/::1/d' | tee /etc/hosts > /dev/null
